@@ -1,0 +1,11 @@
+#change software update server to a custom one
+#!/bin/sh 
+
+defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL 
+http://customurltosus:8088/index.sucatalog
+
+#verify the change
+defaults read /Library/Preferences/com.apple.SoftwareUpdate CatalogURL
+
+#to point back to apple sus
+defaults delete /Library/Preferences/com.apple.SoftwareUpdate CatalogURL
