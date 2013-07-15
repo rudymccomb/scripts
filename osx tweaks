@@ -82,3 +82,10 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
  
 # deletes itunes
 sudo rm -R /Applications/iTunes.app
+
+
+#ScreenSaver 
+BG:/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background
+
+#Hidden Icons Fade
+defaults write com.apple.Dock showhidden -bool YES killall Dock
