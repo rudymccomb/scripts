@@ -1,4 +1,5 @@
+#use this tool to convert ova to vmx
 #!/bin/sh 
 
-/Applications/VMware\ OVF\ Tool/ovftool /Users/valentino_mccomb/Desktop/NetSUS_1.0.ova 
-/Users/valentino_mccomb/Desktop/NetSUS_1.0.vmx 
+/Applications/VMware\ OVF\ Tool/ovftool /path/to/file.ova 
+/path/to/file.vmx 
