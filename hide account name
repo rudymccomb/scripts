@@ -1,0 +1,7 @@
+#hide account name
+sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add acctname
+
+#show account name
+sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add acctname
+
+
