@@ -1,0 +1,8 @@
+# Replace acctname below with the acctname of the user you want to make an admin
+/usr/sbin/dseditgroup -o edit -a acctname -t user admin
+
+# Enables atrun utility to make OSX run Unix commands queued by the "at" command
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+
+# Replace acctname below with the acctname of the user you want to remove admin rights from in 1 day
+echo "/usr/sbin/dseditgroup -o edit -d shortname -t user admin" | at now + 1 day
