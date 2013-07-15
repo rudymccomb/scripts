@@ -1,0 +1,2 @@
+#change default background picture
+sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
