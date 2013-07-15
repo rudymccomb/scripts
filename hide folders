@@ -1,0 +1,12 @@
+
+#hide folder
+chflags hidden ./folder
+
+#show hidden folder
+chflags nohidden ./folder
+
+
+
+#show hidden files
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
