@@ -1,0 +1,5 @@
+#add user to _lpadmin to unclog prtinters
+sudo dseditgroup -o edit -a fred _lpadmin
+
+#or add everyone:
+sudo dseditgroup -o edit -t group -a everyone _lpadmin
