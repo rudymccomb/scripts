@@ -1,0 +1,84 @@
+# Tell loginwindow not to show the user 
+
+defaults write /Library/Preferences/com.apple.loginwindow Hide500Users -bool TRUE 
+
+# Alternate: 
+
+defaults write /Library/Preferences/com.applekick.loginwindow HiddenUsersList -array hiddenadmin 
+
+# Definitions
+ 
+#show hidden files
+defaults write com.apple.finder AppleShowAllFiles True
+killall Finder 
+ 
+#change user password
+sudo dscl . passwd /Users/vadmin "pasword"
+ 
+#gives user admin rights
+sudo dscl . append /Groups/admin GroupMembership vadmin
+ 
+# shows library
+~/Library
+ 
+# shows current home directory
+echo $HOME
+ 
+# deletes user
+sudo dscl . -delete /Users/padmin
+ 
+# shows UID for all users
+dscl . list /Users UniqueID
+ 
+# change unique id
+sudo dscl . create /Users/vadmin UniqueID 480
+
+# shows PGID for all users
+sudo dscl . list /Users PrimaryGroupID
+ 
+# change primary group id
+sudo dscl . create /Users/vadmin PrimaryGroupID 20
+ 
+# change directory
+
+sudo dscl . -create /Users/vadmin NFSHomeDirectory /var/vadmin
+
+# change ownership
+ 
+sudo chown -R vadmin: /var/vadmin
+ 
+# change user name 
+ 
+sudo mv /var/vadmin /var/.vadmin
+ 
+#change user directory
+ 
+sudo mv /Users/vadmin /var/.vadmin
+ 
+#hide admin accounts below uid500
+ 
+defaults write /Library/Preferences/com.apple.loginwindow Hide500Users -bool TRUE
+ 
+# show admin accounts below uid500
+ 
+defaults write /Library/Preferences/com.apple.loginwindow Hide500Users -bool FALSE
+ 
+# hides user list
+ 
+sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add vadmin
+ 
+#hides users from property plist
+sudo defaults write /Library/Preferences/com.apple.loginwindow.plist HiddenUsersList -array-add madmin
+
+# show text at login window
+
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Property of Lost Arrow Corporation"
+
+
+# shows path in finder window
+
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+
+ 
+# deletes itunes
+sudo rm -R /Applications/iTunes.app
